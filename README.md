@@ -8,3 +8,10 @@
 ## Deployment
 
 The application is running on Heroku. If you'd like to be a collaborator on the app, just let [ccschmitz](http://github.com/ccschmitz) know!
+
+## Inspiration
+
+Here are some other BarCamp sites that are pretty nice:
+
+* [barcamporlando.org](http://barcamporlando.org/)
+* [barcampnola.com](http://barcampnola.com/)

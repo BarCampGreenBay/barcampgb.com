@@ -1,0 +1,24 @@
+<div class="block">
+  <h2>When & Where</h2>
+</div>
+
+<div class="block">
+  <h2>Itinerary</h2>
+</div>
+
+<div class="block block-alternate">
+  <h2>Sponsors</h2>
+</div>
+
+<div class="block">
+  <h2>Attendees</h2>
+  <% if User.count > 0 %>
+    <ul>
+      <% User.all.each do |user| %>
+        <li><%= user.full_name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No one has signed up yet...</p>
+  <% end %>
+</div>
