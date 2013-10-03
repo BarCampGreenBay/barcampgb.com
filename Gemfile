@@ -23,5 +23,6 @@ group :development, :test do
 end
 
 group :production, :staging do
+  gem 'newrelic_rpm'
   gem 'pg'
 end
