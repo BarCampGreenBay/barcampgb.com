@@ -1,17 +1,18 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+  <div class="row-fluid">
+    <div class="span8 offset2">
       <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-        <%= f.input :first_name, label: 'First Name' %>
-        <%= f.input :last_name, label: 'Last Name' %>
-        <%= f.input :email %>
-        <%= f.input :twitter %>
-        <%= f.input :shirt_size, collection: ['Small', 'Medium', 'Large', 'X-Large', 'XX-Large'], label: 'Shirt Size' %>
-        <%= f.input :diet_concerns, label: 'Dietary Concerns' %>
-        <div class="controler-group">
-          <div class="controls">
-            <%= f.submit 'Sign Me Up!', class: 'btn btn-success btn-lg' %>
-          </div>
+        <fieldset>
+          <legend>Register Now</legend>
+          <%= f.input :first_name, label: 'First Name' %>
+          <%= f.input :last_name, label: 'Last Name' %>
+          <%= f.input :email %>
+          <%= f.input :twitter %>
+          <%= f.input :shirt_size, collection: ['Small', 'Medium', 'Large', 'X-Large', 'XX-Large'], label: 'Shirt Size' %>
+          <%= f.input :diet_concerns, label: 'Dietary Concerns' %>
+        </fieldset>
+        <div class="form-actions">
+          <%= f.submit 'Sign Me Up!', class: 'btn btn-success btn-large' %>
         </div>
       <% end %>
     </div>
