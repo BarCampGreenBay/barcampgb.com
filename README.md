@@ -1,8 +1,9 @@
 ## Installation
 
-1. Clone the repo
+1. `git clone git@github.com:BarCampGreenBay/barcampgb.com.git` to pull down the Rails app
 2. `bundle install` to install the dependencies
-3. `shotgun barcamp.rb` to start your server
+3. `rails s` to start your server
+4. visit `localhost:3000` to view the site
 
 ## Deployment
 
