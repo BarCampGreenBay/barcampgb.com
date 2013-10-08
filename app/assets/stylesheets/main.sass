@@ -1,6 +1,71 @@
 @import 'bootstrap'
 @import 'bourbon'
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Bree+Serif')
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700')
 
+// Variables
+$primary-color: #0b5ba8   // blue
+$secondary-color: #fdbd35 // yellow
+
+// General Styles
 body
-  padding-top: 41px
+  font-family: 'Open Sans'
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2)
+
+// Typography
+h1, h2, h3, h4
+
+p
+  font-size: 18px
+  line-height: 1.5em
+
+// Header
+.header
+  padding: 15px 0
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  a
+    border-radius: 50px
+    color: #fff
+    display: inline-block
+    font-size: 14px
+    padding: 12px 20px
+    text-transform: uppercase
+    @include transition(.3s all)
+    &:hover, &.current
+      background: rgba(0, 0, 0, .2)
+      text-decoration: none
+    &:active
+      background: rgba(0, 0, 0, .4)
+    &.btn-cta
+      background: $secondary-color
+      &:hover
+        background: lighten($secondary-color, 10%)
+      &:active
+        background: darken($secondary-color, 10%)
+  .pull-left a
+    margin-right: 10px
+  .pull-right a
+    margin-left: 10px
+
+// Footer
+
+// Pages
+
+// Content Blocks
+.block-intro
+  background: image-url('block-intro-bg.jpg') 0 0 no-repeat
+  background-size: cover
+  color: #fff
+  padding: 45px 0 75px
+  text-align: center
+  .logo
+    margin-bottom: 50px
+  p
+    margin: 0 auto 15px
+    width: 700px
+
+// Elements
+
+// Utilities
