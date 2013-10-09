@@ -26,6 +26,7 @@ p
   top: 0
   left: 0
   right: 0
+  z-index: 10
   a
     border-radius: 50px
     color: #fff
@@ -59,6 +60,13 @@ p
 // Pages
 
 // Content Blocks
+.block
+  .block-title
+    color: $primary-color
+    font-size: 40px
+    text-align: center
+    text-transform: uppercase
+
 .block-intro
   background: image-url('block-intro-bg.jpg') 0 0 no-repeat
   background-size: cover
@@ -79,6 +87,50 @@ p
     margin-bottom: 0
   .location-marker
     margin-top: 6px
+
+.block-schedule
+  background: $secondary-color
+  color: #fff
+  padding: 30px 0
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .2)
+  .block-title
+    color: #fff
+    margin: 0 0 40px
+  .span10
+    position: relative
+  .event-time-bg
+    background: rgba(0, 0, 0, .2)
+    border-radius: 10px
+    position: absolute
+    top: -20px
+    left: 0
+    bottom: 0
+    width: 180px
+    z-index: 0
+  .event
+    margin: 0 0 25px
+    position: relative
+    z-index: 1
+  .event-time
+    display: inline-block
+    font-size: 33px
+    font-weight: bold
+    margin-right: 25px
+    line-height: 50px
+    text-align: center
+    vertical-align: bottom
+    width: 180px
+    small
+      display: inline-block
+      font-size: 19px
+      line-height: 50px
+  .event-info
+    display: inline-block
+  .event-info-title
+    margin: 0
+  .event-info-description
+    margin: 0
+
 
 // Elements
 
