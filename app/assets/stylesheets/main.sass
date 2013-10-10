@@ -27,17 +27,25 @@ p
   left: 0
   right: 0
   z-index: 10
-  a
+  a,
+  .wepay-widget-button
     border-radius: 50px
     color: #fff
     display: inline-block
     font-size: 14px
     padding: 12px 20px
     text-transform: uppercase
+    background: rgba(0, 0, 0, 0)
+    box-shadow: none
+    border: 0
+    text-shadow: none
+    line-height: inherit
+    font-family: inherit
     @include transition(.3s all)
     &:hover, &.current
       background: rgba(0, 0, 0, .2)
       text-decoration: none
+      color: #fff
     &:active
       background: rgba(0, 0, 0, .4)
     &.btn-cta
