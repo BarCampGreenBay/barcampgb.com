@@ -52,6 +52,7 @@ p
       background: rgba(0, 0, 0, .4)
     &.btn-cta
       background: $secondary-color
+      text-shadow: 1px 1px 1px rgba(#633b08, 0.5)
       &:hover
         background: lighten($secondary-color, 10%)
       &:active
@@ -100,6 +101,8 @@ p
     width: 700px
 
 .block-location
+  background: #e9e5dc image-url('block-location-bg.png') no-repeat center
+  box-shadow: inset 0 -10px 8px -8px rgba(#000, 0.2), inset 0 10px 8px -8px rgba(#000, 0.2)
   padding: 45px 36px
   color: $primary-color
   h3
@@ -158,13 +161,13 @@ p
   margin-right: 36px
 
 .calendar
+  @include box-sizing(border-box)
   position: relative
-.calendar-body
-  position: absolute
+  background: image-url('calendar.png') no-repeat
   width: 112px
   height: 108px
-  text-align: center
   padding-top: 42px
+  text-align: center
 .calendar-month
   text-transform: uppercase
   font-weight: bold
