@@ -14,3 +14,55 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+/**
+ * cbpAnimatedHeader.js v1.0.0
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2013, Codrops
+ * http://www.codrops.com
+ */
+var cbpAnimatedHeader = (function() {
+
+	var docElem = document.documentElement,
+		header,
+		didScroll = false,
+		changeHeaderOn = 240,
+		scrollClass = 'header-scroll',
+		classReg = new RegExp("(^|\\s+)" + scrollClass + "(\\s+|$)");
+
+	function init() {
+		window.addEventListener( 'scroll', function( event ) {
+			if( !didScroll ) {
+				didScroll = true;
+				setTimeout( scrollPage, 100 );
+			}
+		}, false );
+	}
+
+	function scrollPage() {
+		var sy = scrollY();
+		if (!header) {
+			header = document.querySelector('.header');
+		}
+		if ( sy >= changeHeaderOn) {
+			if (!classReg.test(header.className)) {
+				header.className = header.className + ' ' + scrollClass;
+			}
+		}
+		else {
+			header.className = header.className.replace(classReg, ' ');
+		}
+		didScroll = false;
+	}
+
+	function scrollY() {
+		return window.pageYOffset || docElem.scrollTop;
+	}
+
+	init();
+
+})();
