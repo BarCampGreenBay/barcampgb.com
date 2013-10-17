@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row-fluid">
+    <div class="span8 offset2" id="registration-form">
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('#registration-form').html("<%= j(render 'users/fields', user: User.new) %>");
+  });
+</script>
