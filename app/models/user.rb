@@ -5,7 +5,15 @@ class User < ActiveRecord::Base
   validates :shirt_size, presence: true
   validates :diet_concerns, allow_blank: true, length: { minimum: 10 }
 
+  after_create :send_registration_email
+
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  private
+
+    def send_registration_email
+      UserMailer.registration_email(self).deliver
+    end
 end
