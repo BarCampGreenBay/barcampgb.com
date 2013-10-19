@@ -5,11 +5,12 @@
 // Variables
 $primary-color: #0b5ba8   // blue
 $secondary-color: #fdbd35 // yellow
+$tertiary-color: #e9e5dc // tan
 
 // General Styles
 body
   font-family: 'Open Sans'
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2)
+  // text-shadow: 0 -1px 0 rgba(0, 0, 0, .2)
 
 // Typography
 h1, h2, h3, h4
@@ -100,7 +101,7 @@ p
     width: 700px
 
 .block-location
-  background: #e9e5dc image-url('block-location-bg.png') no-repeat center
+  background: $tertiary-color image-url('block-location-bg.png') no-repeat center
   box-shadow: inset 0 -10px 8px -8px rgba(#000, 0.2), inset 0 10px 8px -8px rgba(#000, 0.2)
   padding: 45px 36px
   color: $primary-color
@@ -111,16 +112,15 @@ p
     margin-top: 6px
 
 .block-schedule
-  background: $secondary-color
-  color: #fff
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .2)
+  background: $tertiary-color
+  color: shade($tertiary-color, 65%)
+  box-shadow: inset 0 -10px 8px -8px rgba(#000, 0.2), inset 0 10px 8px -8px rgba(#000, 0.2)
   .block-title
-    color: #fff
     margin: 0 0 40px
   .span10
     position: relative
   .event-time-bg
-    background: rgba(0, 0, 0, .2)
+    background: rgba(0, 0, 0, .3)
     border-radius: 10px
     position: absolute
     top: -20px
@@ -133,13 +133,13 @@ p
     position: relative
     z-index: 1
   .event-time
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3)
+    color: #fff
     display: inline-block
     font-size: 33px
     font-weight: bold
     margin-right: 25px
-    line-height: 50px
     text-align: center
-    vertical-align: bottom
     width: 180px
     small
       display: inline-block
@@ -147,6 +147,7 @@ p
       line-height: 50px
   .event-info
     display: inline-block
+    vertical-align: top
   .event-info-title
     margin: 0
   .event-info-description
