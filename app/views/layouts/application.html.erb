@@ -3,8 +3,7 @@
   <head>
     <title>BarCamp Green Bay</title>
     <link rel="shortcut icon" href="<%= image_url('favicon.ico') %>">
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -12,5 +11,6 @@
 
     <%= yield %>
     <script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 405183331,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_52561d6fed409",widget_options: {list_suggested_donations: true,allow_cover_fee: true,allow_anonymous: true,reference_id: ""}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
