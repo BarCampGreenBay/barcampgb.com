@@ -26,40 +26,24 @@
  */
 var cbpAnimatedHeader = (function() {
 
-  var docElem = document.documentElement,
-    header,
+  var header = $('.header'),
     didScroll = false,
     changeHeaderOn = 240,
-    scrollClass = 'header-scroll',
-    classReg = new RegExp("(^|\\s+)" + scrollClass + "(\\s+|$)");
+    scrollClass = 'header-scroll';
 
   function init() {
-    window.addEventListener( 'scroll', function( event ) {
+    $(window).on('scroll', function() {
       if( !didScroll ) {
         didScroll = true;
         setTimeout( scrollPage, 100 );
       }
-    }, false );
+    });
   }
 
   function scrollPage() {
-    var sy = scrollY();
-    if (!header) {
-      header = document.querySelector('.header');
-    }
-    if ( sy >= changeHeaderOn) {
-      if (!classReg.test(header.className)) {
-        header.className = header.className + ' ' + scrollClass;
-      }
-    }
-    else {
-      header.className = header.className.replace(classReg, ' ');
-    }
+    var sy = $(window).scrollTop();
+    header.toggleClass(scrollClass, sy >= changeHeaderOn);
     didScroll = false;
-  }
-
-  function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
   }
 
   init();
