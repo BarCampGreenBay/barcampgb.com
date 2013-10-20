@@ -1,3 +1,5 @@
-$('#registration-form').slideUp('slow', function() {
-  $(this).html('<div class="alert alert-success span6 offset3" style="margin-top: 50px;">Alright, you\'re all set!</div>').slideDown('slow');
-});
+$('#registration-form .modal-body').html('<div class="alert alert-success">Alright, you\'re all set!</div>');
+$('#registration-form .modal-footer').remove();
+setTimeout(function() {
+	$('#registration-form').modal('hide');
+}, 2000);

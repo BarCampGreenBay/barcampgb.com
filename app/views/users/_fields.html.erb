@@ -1,14 +1,22 @@
-<%= simple_form_for(user, remote: true, html: { class: 'form-horizontal' }) do |f| %>
-  <fieldset>
-    <legend>Register Now</legend>
-    <%= f.input :first_name, label: 'First Name' %>
-    <%= f.input :last_name, label: 'Last Name' %>
-    <%= f.input :email %>
-    <%= f.input :twitter %>
-    <%= f.input :shirt_size, collection: ['Small', 'Medium', 'Large', 'X-Large', 'XX-Large'], label: 'Shirt Size' %>
-    <%= f.input :diet_concerns, label: 'Dietary Concerns' %>
-  </fieldset>
-  <div class="form-actions">
-    <%= f.submit 'Sign Me Up!', class: 'btn btn-success btn-large' %>
+<%= simple_form_for(user, remote: true, html: { class: 'form-horizontal modal-form' }) do |f| %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Register for BarCamp Green Bay</h3>
+  </div>
+  <div class="modal-body">
+    <fieldset>
+      <%= f.input :first_name, label: 'First Name' %>
+      <%= f.input :last_name, label: 'Last Name' %>
+      <%= f.input :email %>
+      <%= f.input :shirt_size, collection: ['Unisex Small', 'Unisex Medium', 'Unisex Large', 'Unisex X-Large', 'Unisex XX-Large', "Women's Small", "Women's Medium", "Women's Large", "Women's X-Large", "Women's XX-Large"], label: 'Shirt Size' %>
+      <%= f.input :diet_concerns, label: 'Dietary Concerns' %>
+    </fieldset>
+    <p class="text-success text-center">
+      Register before October 27th to get a free t-shirt!
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-link" data-dismiss="modal" aria-hidden="true" type="button">Close</button>
+    <%= f.submit 'Sign Me Up!', class: 'btn btn-primary btn-large' %>
   </div>
 <% end %>

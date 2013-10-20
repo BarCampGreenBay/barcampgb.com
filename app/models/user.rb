@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
                     uniqueness: true,
                     format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }
   validates :shirt_size, presence: true
-  validates :diet_concerns, allow_blank: true, length: { minimum: 10 }
 
   after_create :send_registration_email
 
