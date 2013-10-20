@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "info@barcampgb.org"
+  default from: "BarCamp Green Bay <info@barcampgb.org>"
 
   def registration_email(user)
     @user = user
