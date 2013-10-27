@@ -1,0 +1,7 @@
+<% if @presentations.any? %>
+  <% @presentations.each do |pres| %>
+    <pre><%= pres.inspect %></pre>
+  <% end %>
+<% else %>
+  <p>You don't have any presentations yet... Perhaps you should <%= link_to('create the first one', new_presentation_path) %>.</p>
+<% end %>

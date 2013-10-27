@@ -1,6 +1,6 @@
 Barcampgb::Application.routes.draw do
   # resources
-  resources :users
+  resources :users, :sessions, :presentations
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'

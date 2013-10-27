@@ -1,0 +1,17 @@
+<%= form_tag(sessions_path) do %>
+  <div class="control-group required">
+    <%= label_tag :email %>
+    <div class="controls">
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+  </div>
+
+  <div class="control-group required">
+    <%= label_tag :password %>
+    <div class="controls">
+      <%= password_field_tag :password %>
+    </div>
+  </div>
+
+  <%= button_tag 'Sign In', class: 'btn' %>
+<% end %>
