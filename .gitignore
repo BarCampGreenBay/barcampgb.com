@@ -18,3 +18,5 @@
 .ruby-*
 .powrc
 .sass-cache/
+
+.zenflo*
