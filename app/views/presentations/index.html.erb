@@ -2,6 +2,7 @@
   <% @presentations.each do |pres| %>
     <pre><%= pres.inspect %></pre>
   <% end %>
+  <%= link_to('Submit your talk', new_presentation_path, class: 'btn btn-primary btn-large') %>
 <% else %>
   <p>You don't have any presentations yet... Perhaps you should <%= link_to('create the first one', new_presentation_path) %>.</p>
 <% end %>
