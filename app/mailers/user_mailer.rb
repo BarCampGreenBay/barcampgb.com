@@ -5,4 +5,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: 'BarCamp Green Bay 2013')
   end
+
+  def password_reset_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Set me in mailers/user_mailer.rb')
+  end
 end
