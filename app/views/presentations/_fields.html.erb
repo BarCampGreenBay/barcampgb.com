@@ -1,0 +1,6 @@
+<%= simple_form_for([current_user, Presentation.new], url: presentations_path, html: { class: 'box' }) do |f| %>
+  <h1>Submit Your Presentation</h1>
+  <%= f.input(:title, input_html: { class: 'input-block-level' }) %>
+  <%= f.input(:description, input_html: { class: 'input-block-level' }) %>
+  <%= f.button(:submit, 'Submit My Talk', class: 'btn btn-primary btn-large') %>
+<% end %>
