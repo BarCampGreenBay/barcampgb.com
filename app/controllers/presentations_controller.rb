@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  before_action :login!
+  before_action :login!, :except => [:index]
 
   def index
     @presentations = Presentation.all
