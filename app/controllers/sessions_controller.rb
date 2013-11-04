@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to presentations_path if signed_in?
   end
 
   def create
