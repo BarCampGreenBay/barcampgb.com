@@ -1,25 +1,29 @@
-<h1>Reset Password</h1>
+<div class="row-fluid">
+  <div class="span4 offset4">
+    <%= form_for(@user, url: password_reset_path(params[:id]), html: { class: 'single-form' }) do |f| %>
+      <h1>Reset Password</h1>
 
-<%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <div class="field">
+        <%= f.label(:password) %>
+        <%= f.password_field(:password, class: 'input-block-level') %>
+      </div>
+      <div class="field">
+        <%= f.label(:password_confirmation) %>
+        <%= f.password_field(:password_confirmation, class: 'input-block-level') %>
+      </div>
+
+      <%= f.submit('Update Password', class: 'btn btn-primary') %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <%= f.submit('Update Password', class: 'btn') %>
-<% end %>
+</div>

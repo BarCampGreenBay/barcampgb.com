@@ -11,6 +11,8 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @user = User.find_by(password_reset_token: params[:id])
+
+    redirect_to root_path unless @user
   end
 
   def update

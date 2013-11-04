@@ -1,9 +1,13 @@
-<h1>Reset Password</h1>
-
-<%= form_tag(password_resets_path, method: :post) do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+<div class="row-fluid">
+  <div class="span4 offset4">
+    <%= form_tag(password_resets_path, method: :post, class: 'single-form') do %>
+      <h1>Reset Your Password</h1>
+      <p>Enter your email address and we will send you an email with information on how to reset your password.</p>
+      <div class="field">
+        <%= label_tag(:email) %>
+        <%= text_field_tag(:email, params[:email], class: 'input-block-level') %>
+      </div>
+      <%= submit_tag('Reset Password', class: 'btn btn-primary') %>
+    <% end %>
   </div>
-  <%= submit_tag('Reset Password', class: 'btn') %>
-<% end %>
+</div>
