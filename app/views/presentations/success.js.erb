@@ -1,0 +1,7 @@
+$('#presentation-modal').find('.modal-body').html('<div class="alert alert-success">Talk submitted successfully!</div>')
+
+$('#presentation-modal').find('.modal-footer').remove();
+
+$('#presentation-modal').delay(2000).modal('hide');
+
+$('.container.presentations').replaceWith("<%= j(render template: 'presentations/index') %>");

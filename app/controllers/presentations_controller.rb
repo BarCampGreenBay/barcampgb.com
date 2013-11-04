@@ -10,13 +10,14 @@ class PresentationsController < ApplicationController
   end
 
   def create
-    @presentation = current_user.presentation.new(presentation_params)
+    @presentation = Presentation.new(presentation_params)
+    @presentation.presenter = current_user
 
     if @presentation.save
-      flash[:success] = 'Presentation created successfully!'
-      redirect_to presentations_path
+      @presentations = Presentation.all.order('created_at DESC')
+      render :success
     else
-      render :new
+      render :error
     end
   end
 

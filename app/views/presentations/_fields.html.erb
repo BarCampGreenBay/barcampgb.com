@@ -1,6 +1,15 @@
-<%= simple_form_for([current_user, Presentation.new], url: presentations_path, html: { class: 'box' }) do |f| %>
-  <h1>Submit Your Presentation</h1>
-  <%= f.input(:title, input_html: { class: 'input-block-level' }) %>
-  <%= f.input(:description, input_html: { class: 'input-block-level' }) %>
-  <%= f.button(:submit, 'Submit My Talk', class: 'btn btn-primary btn-large') %>
+<% presentation = @presentation.present? ? @presentation : Presentation.new %>
+<%= simple_form_for(presentation, url: presentations_path, remote: true, html: { class: 'modal hide fade', id: 'presentation-modal' }) do |f| %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Submit Your Presentation</h3>
+  </div>
+  <div class="modal-body">
+      <%= f.input(:title, input_html: { class: 'input-block-level' }) %>
+      <%= f.input(:description, input_html: { class: 'input-block-level', rows: 5 }) %>
+  </div>
+  <div class="modal-footer">
+    <a class="inline" data-dismiss="modal" href="#">Close</a>
+    <%= f.button(:submit, 'Submit My Talk', class: 'btn btn-primary btn-large') %>
+  </div>
 <% end %>
