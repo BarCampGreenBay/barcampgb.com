@@ -22,12 +22,12 @@ p
 
 // Header
 .header
-  padding: 10px 0
-  position: fixed
+  position: absolute
   top: 0
   left: 0
   right: 0
   z-index: 10
+  padding: 10px 0
   @include transition(150ms all)
   a,
   .wepay-widget-button,
@@ -65,9 +65,12 @@ p
   .pull-right a
     margin-left: 10px
 
-.header-scroll
-  background-color: $primary-color
-  box-shadow: 0 8px 5px -5px rgba(#000, 0.2)
+.pages-home
+  .header
+    position: fixed
+  .header-scroll
+    background-color: $primary-color
+    box-shadow: 0 8px 5px -5px rgba(#000, 0.2)
 
 // Footer
 
