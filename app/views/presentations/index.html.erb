@@ -1,8 +1,15 @@
-<% if @presentations.any? %>
-  <% @presentations.each do |pres| %>
-    <pre><%= pres.inspect %></pre>
+<div class="container presentations">
+  <%= link_to('Submit Your Presentation', new_presentation_path, class: 'btn btn-large btn-success pull-right') %>
+  <h1>Presentations</h1>
+  <% if @presentations.any? %>
+    <% @presentations.each do |presentation| %>
+      <div class="box presentation presentation-<%= presentation.id %>">
+        <h2><%= presentation.title %></h2>
+        <%= simple_format(presentation.description) %>
+        <%= render 'attendance', presentation: presentation %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You don't have any presentations yet... Perhaps you should <%= link_to('create the first one', new_presentation_path) %>.</p>
   <% end %>
-  <%= link_to('Submit your talk', new_presentation_path, class: 'btn btn-primary btn-large') %>
-<% else %>
-  <p>You don't have any presentations yet... Perhaps you should <%= link_to('create the first one', new_presentation_path) %>.</p>
-<% end %>
+</div>

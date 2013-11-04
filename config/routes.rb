@@ -1,6 +1,10 @@
 Barcampgb::Application.routes.draw do
   # resources
-  resources :users, :sessions, :presentations, :password_resets
+  resources :users, :sessions, :password_resets
+
+  resources :presentations do
+    get 'attend', on: :member
+  end
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'

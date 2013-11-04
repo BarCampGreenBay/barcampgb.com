@@ -10,7 +10,7 @@ class PresentationsController < ApplicationController
   end
 
   def create
-    @presentation = Presentation.new(presentation_params)
+    @presentation = current_user.presentation.new(presentation_params)
 
     if @presentation.save
       flash[:success] = 'Presentation created successfully!'
@@ -21,9 +21,13 @@ class PresentationsController < ApplicationController
   end
 
   def attend
-  end
+    @presentation = Presentation.find(params[:id])
 
-  def unattend
+    if current_user.presentations.where(id: @presentation.id).any?
+      current_user.presentations.delete(@presentation)
+    else
+      current_user.presentations << @presentation
+    end
   end
 
   private

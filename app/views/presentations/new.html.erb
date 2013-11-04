@@ -1,5 +1,5 @@
-<%= simple_form_for([current_user, Presentation.new], url: presentations_path) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.button :submit, 'Submit My Talk', class: 'btn btn-large' %>
-<% end %>
+<div class="row-fluid">
+  <div class="span6 offset3">
+    <%= render 'fields' %>
+  </div>
+</div>
