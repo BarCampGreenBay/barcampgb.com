@@ -93,11 +93,14 @@ body.pages-home
 
   .attendance-info
     margin-top: 25px
-    a
-      margin-right: 5px
 
   .attendance-count
     font-weight: bold
+    display: inline-block
+    margin-right: 10px
+
+  .toggle-attendance
+    margin-right: 5px
 
 // Content Blocks
 
@@ -224,11 +227,15 @@ body.pages-home
 
 // Flash Messages
 .flash-message
+  @include box-sizing(border-box)
   border-radius: 3px
   position: absolute
-  right: 25px
-  top: 80px
-  min-width: 300px
+  left: 50%
+  margin-left: -150px
+  top: 20px
+  width: 350px
+  text-align: center
+  z-index: 1000
 
 // Forms
 .single-form

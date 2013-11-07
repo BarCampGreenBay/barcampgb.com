@@ -8,6 +8,6 @@ class UserMailer < ActionMailer::Base
 
   def password_reset_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Set me in mailers/user_mailer.rb')
+    mail(to: @user.email, subject: 'barcampgb.org Password Reset')
   end
 end

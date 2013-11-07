@@ -3,9 +3,11 @@
     <a id="about" class="anchor"></a>
     <h2 class="block-title">What is BarCamp?</h2>
       <p class="lead alert alert-success text-center">
-        <a href="" data-toggle="modal" data-target="#registration-form">Register now</a> and join the <strong><%= User.count %></strong> other campers!
+        <a href="" data-toggle="modal" data-target="#registration-form">Register now</a> and join <strong><%= User.count %></strong> other campers!
       </p>
       <p>This free event is entirely produced by <strong>you</strong>, the participants, so chances are if you are an attendee you are also a speaker. The topics tend to be somewhat tech-focused, but anyone and everyone is welcome and encouraged to attend and present on whatever they find fascinating.</p>
+      <p>We'll also be having a <strong>KidsCamp</strong> this year with fun things for children to do so bring yours along and encourage them to present too!</p>
+      <p>If you have any questions, feel free to <a href="mailto:info@barcampgb.org">send an email</a>.</p>
       <div class="row-fluid">
         <div class="span4">
           <h3>How does it work?</h3>
@@ -17,7 +19,7 @@
         </div>
         <div class="span4">
           <h3>What about topics?</h3>
-          <p>Here are some topics found at past BarCamps in the area: 3d printing, hacker/makerspaces, robots, beekeeping, lock picking, unschooling, photography, web development, and many others.</p>
+          <p>Here are some ideas: 3d printing, hacker/makerspaces, robots, beekeeping, lock picking, unschooling, photography, and web development. Check out the <%= link_to('proposed sessions', presentations_path) %>.</p>
         </div>
       </div>
   </div>
