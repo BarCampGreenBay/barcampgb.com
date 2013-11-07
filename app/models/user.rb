@@ -18,17 +18,21 @@ class User < ActiveRecord::Base
   end
 
   def send_password_reset
-    generate_token(:password_reset_token)
-    self.password_reset_sent_at = Time.zone.now
-    save!
-
+    set_password_reset_token
     UserMailer.password_reset_email(self).deliver
   end
 
   private
 
   def send_registration_email
+    set_password_reset_token
     UserMailer.registration_email(self).deliver
+  end
+
+  def set_password_reset_token
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
   end
 
   def generate_token(column)

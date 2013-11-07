@@ -1,6 +1,8 @@
 Hi <%= @user.first_name %>,
 
-Thanks for registering for BarCamp Green Bay!
+Thanks for registering for BarCamp Green Bay! To finish setting up your account, follow this link:
+
+<%= edit_password_reset_url(@user.password_reset_token) %>
 
 Now you just have to remember to show up on Saturday, November 16 at St. Norbert College's Bemis Center :)
 

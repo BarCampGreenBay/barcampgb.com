@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <div class="span4 offset4">
     <%= form_for(@user, url: password_reset_path(params[:id]), html: { class: 'single-form' }) do |f| %>
-      <h1>Reset Password</h1>
+      <h1>Set Your Password</h1>
 
       <% if @user.errors.any? %>
         <div class="error_messages">
