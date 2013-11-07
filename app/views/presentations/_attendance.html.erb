@@ -6,5 +6,8 @@
       <%= link_to('Attend This Session', attend_presentation_path(presentation), remote: true, class: 'btn btn-primary toggle-attendance') %>
     <% end %>
   <% end %>
-  <span class="attendance-count"><%= pluralize(presentation.users.count, 'attendees') %></span>
+  <span class="attendance-count"><%= pluralize(presentation.users.count, 'attendee') %></span>
+  <% if not signed_in? %>
+  	<%= link_to('Sign in to attend', signin_path) %>
+  <% end %> 
 </div>

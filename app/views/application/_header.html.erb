@@ -4,17 +4,22 @@
       <% if current_page?(root_url) %>
         <a href="/#about">About</a>
         <a href="/#schedule">Schedule</a>
+        <%= link_to('Sessions', presentations_path) %>
       <% else %>
         <%= link_to('Home', root_path) %>
+        <% if signed_in? %>
+          <%= link_to('Sign out', signout_path) %>
+        <% else %>
+          <%= link_to('Sign in', signin_path) %>
+        <% end %>
       <% end %>
-      <a href="/presentations">Sessions</a>
     </div>
     <div class="pull-right">
       <a href="https://twitter.com/BarCampGB" title="@BarCampGB">
         <%= image_tag('twitter-bird-dark-bgs.png') %>
       </a>
       <a class="wepay-widget-button" id="wepay_widget_anchor_52561d6fed409" href="https://www.wepay.com/donations/barcamp-gb-2013">Sponsor</a>
-      <a class="btn-cta" href="#" data-toggle="modal" data-target="#registration-form" title="Join <%= User.count %> other campers!">Register</a>
+      <a class="btn-cta" href="" data-toggle="modal" data-target="#registration-form" title="Join <%= User.count %> other campers!">Register</a>
     </div>
   </div>
 </header>
