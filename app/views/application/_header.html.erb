@@ -1,8 +1,12 @@
 <header class="header">
   <div class="container clearfix">
     <div class="pull-left">
-      <a href="/#about">About</a>
-      <a href="/#schedule">Schedule</a>
+      <% if current_page?(root_url) %>
+        <a href="/#about">About</a>
+        <a href="/#schedule">Schedule</a>
+      <% else %>
+        <%= link_to('Home', root_path) %>
+      <% end %>
       <a href="/presentations">Sessions</a>
     </div>
     <div class="pull-right">
