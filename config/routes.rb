@@ -12,5 +12,10 @@ Barcampgb::Application.routes.draw do
 
   # pages
   get 'about' => 'pages#about'
+
+  # custom routes
+  get 'signin' => 'sessions#new'
+  get 'signout' => 'sessions#destroy'
+
   root to: 'pages#home'
 end
