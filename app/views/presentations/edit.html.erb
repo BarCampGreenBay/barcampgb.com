@@ -1,0 +1,14 @@
+<div class="row-fluid">
+  <div class="span6 offset3">
+    <div class="box">
+      <h2>Edit Session</h2>
+      <%= simple_form_for(@presentation) do |f| %>
+        <%= f.input(:title, input_html: { class: 'input-block-level' }) %>
+        <%= f.input(:description, input_html: { class: 'input-block-level', rows: 5 }) %>
+        <div class="clearfix">
+          <%= f.button(:submit, 'Update Talk', class: 'btn btn-primary btn-large pull-right') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

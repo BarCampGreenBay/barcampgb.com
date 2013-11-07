@@ -7,6 +7,7 @@
   <% if @presentations.any? %>
     <% @presentations.each do |presentation| %>
       <div class="box presentation presentation-<%= presentation.id %>">
+        <%= link_to('Edit Your Presentation', edit_presentation_path(presentation), class: 'btn btn-primary btn-small pull-right') if presentation.presenter == current_user %>
         <h2><%= presentation.title %></h2>
         <h4 class="presentation-presenter">By: <%= presentation.presenter.full_name %></h4>
         <%= simple_format(presentation.description) %>

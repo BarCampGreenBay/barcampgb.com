@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
-  before_action :login!, :except => [:index]
+  before_action :login!, except: [:index]
+  before_action :get_presentation, only: [:edit, :update]
 
   def index
     @presentations = Presentation.order("RANDOM()")
@@ -21,6 +22,18 @@ class PresentationsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @presentation.update_attributes(presentation_params)
+      flash[:success] = 'Presentation updated successfully!'
+      redirect_to presentations_path
+    else
+      render :edit
+    end
+  end
+
   def attend
     @presentation = Presentation.find(params[:id])
 
@@ -35,5 +48,10 @@ class PresentationsController < ApplicationController
 
   def presentation_params
     params.require(:presentation).permit(:title, :description)
+  end
+
+  def get_presentation
+    @presentation = Presentation.find(params[:id])
+    raise ActiveRecord::RecordNotFound unless @presentation.presenter == current_user
   end
 end
