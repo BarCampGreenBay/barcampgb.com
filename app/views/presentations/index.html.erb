@@ -17,4 +17,9 @@
   <% end %>
 </div>
 
-<%= render 'presentations/fields' %>
+
+<% if signed_in? %>
+  <%= render 'presentations/fields' %>
+<% else %>
+  <%= render 'sessions/modal' %>
+<% end %>

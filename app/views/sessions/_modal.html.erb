@@ -1,0 +1,29 @@
+<%= form_tag(sessions_path, class: 'modal hide fade', id: 'presentation-modal') do %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Sign In</h3>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-info">
+      You must be signed in to submit a presentation. Please <%= link_to('create an account', new_user_path) %> or sign in to submit a presentation.
+    </div>
+
+    <div class="control-group required">
+      <%= label_tag(:email) %>
+      <div class="controls">
+        <%= text_field_tag(:email, params[:email], class: 'input-block-level') %>
+      </div>
+    </div>
+
+    <div class="control-group required">
+      <%= label_tag(:password) %>
+      <div class="controls">
+        <%= password_field_tag(:password, nil, class: 'input-block-level') %>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= link_to('Forgot password?', new_password_reset_path, style: 'margin-right: 10px') %>
+    <%= button_tag('Sign In', class: 'btn btn-primary') %>
+  </div>
+<% end %>
