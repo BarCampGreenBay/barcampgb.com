@@ -1,6 +1,9 @@
 <div class="container presentations">
   <%= link_to('Submit Your Session', '', class: 'btn btn-large btn-success pull-right', data: { target: '#presentation-modal', toggle: 'modal' }) %>
-  <h1>Session</h1>
+  <h1>Session Proposals</h1>
+  <div class="alert alert-info">
+    Remember these are just proposals! The real session schedule will be created the day of the event.
+  </div>
   <% if @presentations.any? %>
     <% @presentations.each do |presentation| %>
       <div class="box presentation presentation-<%= presentation.id %>">
