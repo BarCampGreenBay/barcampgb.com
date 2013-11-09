@@ -1,7 +1,7 @@
 <div class="attendance-info">
   <% if signed_in? %>
-    <% if current_user.presentations.where(id: presentation.id).any? %>
-      <%= link_to('Unattend This Session', attend_presentation_path(presentation), remote: true, class: 'btn btn-danger toggle-attendance') %>
+    <% if current_user.presentations.include?(presentation) %>
+      <%= link_to('Unattend This Session', unattend_presentation_path(presentation), remote: true, class: 'btn btn-danger toggle-attendance') %>
     <% else %>
       <%= link_to('Attend This Session', attend_presentation_path(presentation), remote: true, class: 'btn btn-primary toggle-attendance') %>
     <% end %>
@@ -9,5 +9,5 @@
   <span class="attendance-count"><%= pluralize(presentation.users.count, 'attendee') %></span>
   <% if not signed_in? %>
   	<%= link_to('Sign in to attend', signin_path) %>
-  <% end %> 
+  <% end %>
 </div>

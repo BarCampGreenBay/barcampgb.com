@@ -1,6 +1,6 @@
 class PresentationsController < ApplicationController
   before_action :login!, except: [:index]
-  before_action :get_presentation, only: [:edit, :update]
+  before_action :get_presentation, only: [:edit, :update, :attend, :unattend]
 
   def index
     @presentations = Presentation.order("RANDOM()")
@@ -35,13 +35,12 @@ class PresentationsController < ApplicationController
   end
 
   def attend
-    @presentation = Presentation.find(params[:id])
+    current_user.attend(@presentation)
+  end
 
-    if current_user.presentations.where(id: @presentation.id).any?
-      current_user.presentations.delete(@presentation)
-    else
-      current_user.presentations << @presentation
-    end
+  def unattend
+    current_user.unattend(@presentation)
+    render :attend
   end
 
   private

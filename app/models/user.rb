@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
     UserMailer.password_reset_email(self).deliver
   end
 
+  def attend(presentation)
+    presentations << presentation unless presentations.include?(presentation)
+  end
+
+  def unattend(presentation)
+    presentations.delete(presentation) if presentations.include?(presentation)
+  end
+
   private
 
   def send_registration_email

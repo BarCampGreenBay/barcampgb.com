@@ -4,6 +4,7 @@ Barcampgb::Application.routes.draw do
 
   resources :presentations do
     get 'attend', on: :member
+    get 'unattend', on: :member
   end
 
   if Rails.env.development?
