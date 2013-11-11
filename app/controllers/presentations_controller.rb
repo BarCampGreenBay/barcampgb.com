@@ -1,6 +1,7 @@
 class PresentationsController < ApplicationController
   before_action :login!, except: [:index]
   before_action :get_presentation, only: [:edit, :update, :attend, :unattend]
+  before_action :authorize_presentation, only: [:edit, :update]
 
   def index
     @presentations = Presentation.order("RANDOM()")
@@ -51,6 +52,9 @@ class PresentationsController < ApplicationController
 
   def get_presentation
     @presentation = Presentation.find(params[:id])
+  end
+
+  def authorize_presentation
     raise ActiveRecord::RecordNotFound unless @presentation.presenter == current_user
   end
 end
