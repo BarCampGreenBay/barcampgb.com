@@ -17,17 +17,29 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def short_name
+    "#{first_name} #{last_name.first}"
+  end
+
   def send_password_reset
     set_password_reset_token
     UserMailer.password_reset_email(self).deliver
   end
 
   def attend(presentation)
-    presentations << presentation unless presentations.include?(presentation)
+    presentations << presentation unless is_attending?(presentation)
   end
 
   def unattend(presentation)
-    presentations.delete(presentation) if presentations.include?(presentation)
+    presentations.delete(presentation) if is_attending?(presentation)
+  end
+
+  def is_attending?(presentation)
+    presentations.include?(presentation)
+  end
+
+  def is_admin?
+    admin?
   end
 
   private
