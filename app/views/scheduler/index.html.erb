@@ -1,0 +1,17 @@
+<div class="row-fluid">
+  <div class="span12 box presentation ">
+    <table id="scheduler">
+      <tr><th>Presentation Name</th>
+      <% @users.each do |user| %>
+        <th><%= user.short_name %></th>
+          <% end %>
+      </tr>
+    <% @presentations.each do |presentation| %>
+          <tr><td><%= presentation.title %></td>
+      <% @users.each do |user| %>
+        <td class="<%= 'selected' if user.is_attending?(presentation) %>"><%= user.is_attending?(presentation) ? "Y" : "N" %></td>
+      <% end %>
+    <% end %>
+    </table>
+  </div>
+</div>
