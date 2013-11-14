@@ -1,0 +1,23 @@
+<div class="container presentations">
+  <h1>Scheduler</h1>
+  <div class="row-fluid">
+    <div class="span12">
+      <table class="table table-striped">
+        <tr>
+          <th>Presentation Name</th>
+          <% @users.each do |user| %>
+            <th><%= user.short_name %></th>
+          <% end %>
+        </tr>
+        <% @presentations.each do |presentation| %>
+          <tr>
+            <td><%= presentation.title %></td>
+            <% @users.each do |user| %>
+              <td class="<%= 'selected' if user.is_attending?(presentation) %>"><%= user.is_attending?(presentation) ? "Y" : "N" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
