@@ -8,7 +8,7 @@
 
     <%= link_to('BarCamp Green Bay', root_path, class: 'brand') %>
 
-    <div class="collapse nav-collapse">
+    <div class="collapse nav-collapse collapse">
       <ul class="nav">
         <li<%= ' class="active"' if current_page?(controller: 'pages', action: 'home') %>><%= link_to('Home', root_path) %></li>
         <li<%= ' class="active"' if current_page?(controller: 'pages', action: 'about') %>><%= link_to('About', about_path) %></li>
