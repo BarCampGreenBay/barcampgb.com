@@ -4,4 +4,8 @@ class Presentation < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 200, minimum: 6 }
   validates :description, presence: true, length: { maximum: 2000, minimum: 50 }
+
+  def non_conflicting_presentations
+    Presentation.includes(:users).all.select{|p| (p.users & self.users).empty?}
+  end
 end

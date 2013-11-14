@@ -6,12 +6,12 @@
         <tr>
           <th>Presentation Name</th>
           <% @users.each do |user| %>
-            <th><%= user.short_name %> (<%= user.presentations.count %>)</th>
+            <th title="<%= user.full_name %>"><%= user.short_name %> (<%= user.presentations.count %>)</th>
           <% end %>
         </tr>
         <% @presentations.each do |presentation| %>
           <tr>
-            <td><%= presentation.title %> (<%= presentation.users.count %>)</td>
+            <td title="<%= presentation.non_conflicting_presentations.collect{|p| p.title}.join("\n") %>"><%= presentation.title %> (<%= presentation.users.count %>)</td>
             <% @users.each do |user| %>
               <td class="<%= 'selected' if user.is_attending?(presentation) %>"><%= user.is_attending?(presentation) ? "Y" : "N" %></td>
             <% end %>
