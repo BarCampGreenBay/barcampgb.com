@@ -1,7 +1,9 @@
 Barcampgb::Application.routes.draw do
   # resources
   resources :users, :sessions, :password_resets
-  resources :scheduler, only: :index
+
+  get "/scheduler/people" => "scheduler#people"
+  get "/scheduler/sessions" => "scheduler#sessions"
 
   resources :presentations do
     get 'attend', on: :member

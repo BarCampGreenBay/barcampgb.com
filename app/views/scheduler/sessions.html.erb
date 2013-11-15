@@ -1,0 +1,27 @@
+<div class="container presentations">
+  <h1>Scheduler</h1>
+  <div class="row-fluid">
+    <div class="span12">
+      <table class="table table-striped">
+        <tr>
+          <th>Presentation Name</th>
+          <% @presentations.each do |presentation| %>
+              <th><%= presentation.title %> </th>
+          <% end %>
+        </tr>
+        <% @presentations.each do |presentation1| %>
+            <tr>
+              <td><%= presentation1.title %></td>
+              <% @presentations.each do |presentation2| %>
+                  <% if presentation1 == presentation2 %>
+                      <td>&nbsp;</td>
+                  <% else %>
+                    <td><%= (presentation1.users & presentation2.users).collect{|u| u.short_name} %></td>
+                  <% end %>
+              <% end %>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
