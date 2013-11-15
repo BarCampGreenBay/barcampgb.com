@@ -16,7 +16,7 @@
                   <% if presentation1 == presentation2 %>
                       <td>&nbsp;</td>
                   <% else %>
-                    <td><%= (presentation1.users & presentation2.users).collect{|u| u.short_name} %></td>
+                    <td title="<%= presentation1.title %> & <%= presentation2.title %>"><%= (presentation1.users & presentation2.users).collect{|u| u.short_name} %></td>
                   <% end %>
               <% end %>
             </tr>
