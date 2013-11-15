@@ -171,7 +171,7 @@ body.pages-home
     margin-bottom: 50px
   p
     margin: 0 auto 15px
-    width: 700px
+    max-width: 700px
 
 .block-location
   background: $tertiary-color image-url('block-location-bg.png') no-repeat center
@@ -231,10 +231,23 @@ body.pages-home
     margin: 0
   .event-info-description
     margin: 0
+
   @media (max-width: 767px)
     padding: 0 20px
     .block-title
       margin-top: 25px
+
+  @media (max-width: 480px)
+    .event-time-bg
+      width: 35%
+    .event
+      @include clearfix
+      .event-time
+        font-size: 16px
+        margin-right: 5%
+        width: 35%
+      .event-info
+        width: 55%
 
 
 // Elements
