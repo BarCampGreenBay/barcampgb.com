@@ -1,17 +1,20 @@
 @import 'bootstrap'
+@import 'bootstrap-responsive'
 @import 'bourbon'
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700')
 
 // Variables
-$primary-color: #0b5ba8   // blue
+$primary-color:   #025bac // blue
 $secondary-color: #fdbd35 // yellow
-$tertiary-color: #e9e5dc // tan
+$tertiary-color:  #e9e5dc // tan
 
 // General Styles
 body
   background: $primary-color
   font-family: 'Open Sans'
-  margin: 75px 0 50px
+  margin: 75 0 50px
+  @media (max-width: 767px)
+    margin-top: 0
 
 // Typography
 h1, h2, h3, h4
@@ -22,13 +25,22 @@ p
 
 // Header
 .header
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
-  z-index: 10
   padding: 10px 0
   @include transition(150ms all)
+  z-index: 10
+  @media (max-width: 767px)
+    padding-top: 0
+  .navbar-inner
+    background: transparent
+    border: none
+    box-shadow: none
+    @media (max-width: 767px)
+      padding: 0
+  .btn.btn-navbar
+    background: none
+    box-shadow: none
+    margin: 15px 0 0
+    padding: 0
   a,
   .wepay-widget-button,
   .wepay-widget-button:focus,
@@ -46,6 +58,16 @@ p
     font-family: inherit
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"
     @include transition(.3s all)
+    @media (max-width: 767px)
+      display: block
+      margin-bottom: 8px
+      text-align: left
+      &.home-link
+        display: inline-block !important
+        margin-bottom: 0
+        padding-left: 0
+        &:hover, &.current, &.active
+          background: transparent
     &:hover, &.current
       background: rgba(0, 0, 0, .2)
       text-decoration: none
@@ -64,13 +86,13 @@ p
     margin-right: 10px
   .pull-right a
     margin-left: 10px
+  @media (max-width: 767px)
+    .pull-left, .pull-right
+      float: none
+      a
+        margin-left: 0
+        margin-right: 0
 
-.pages-home
-  .header
-    position: fixed
-  .header-scroll
-    background-color: $primary-color
-    box-shadow: 0 8px 5px -5px rgba(#000, 0.2)
 
 // Footer
 
@@ -80,10 +102,19 @@ p
 body.pages-home
   background: #fff
   margin: 0
+  .header
+    background: $primary-color
+    margin-bottom: 0
+    padding: 0 20px
+    position: fixed
+    left: 0
+    right: 0
+  .header-scroll
+    background-color: $primary-color
+    box-shadow: 0 8px 5px -5px rgba(#000, 0.2)
 
 // Presentations
 .container.presentations
-  margin-top: 75px
   h1
     color: #fff
   .box
@@ -101,6 +132,16 @@ body.pages-home
 
   .toggle-attendance
     margin-right: 5px
+
+// Scheduler
+.presentations
+  h1
+    color: #fff
+  table td
+    background: #fff
+    &.selected
+      background-color: #00FF00
+
 
 // Content Blocks
 
@@ -121,16 +162,16 @@ body.pages-home
     color: #fff
 
 .block-intro
-  background: image-url('block-intro-bg.jpg') 0 0 no-repeat
+  background: $primary-color image-url('block-intro-bg.png') 0 0 no-repeat
   background-size: cover
   color: #fff
-  padding: 20px 0 75px
+  padding: 60px 0 75px
   text-align: center
   .logo
     margin-bottom: 50px
   p
     margin: 0 auto 15px
-    width: 700px
+    max-width: 700px
 
 .block-location
   background: $tertiary-color image-url('block-location-bg.png') no-repeat center
@@ -142,6 +183,12 @@ body.pages-home
     margin-bottom: 0
   .location-marker
     margin-top: 6px
+  @media (max-width: 767px)
+    @include background-size(cover)
+    [class*="span"]
+      @include clearfix
+      &:first-of-type
+        margin-bottom: 50px
 
 .block-schedule
   background: $tertiary-color
@@ -184,6 +231,23 @@ body.pages-home
     margin: 0
   .event-info-description
     margin: 0
+
+  @media (max-width: 767px)
+    padding: 0 20px
+    .block-title
+      margin-top: 25px
+
+  @media (max-width: 480px)
+    .event-time-bg
+      width: 35%
+    .event
+      @include clearfix
+      .event-time
+        font-size: 16px
+        margin-right: 5%
+        width: 35%
+      .event-info
+        width: 55%
 
 
 // Elements
@@ -257,11 +321,7 @@ body.pages-home
 .clear-sp-outer-top
   margin-top: 0 !important
 
-// Scheduler
-.presentations
-  h1
-    color: #fff
-  table td
-    background: #fff
-  .selected
-    background-color: #00FF00
+@media (max-width: 767px)
+  .stretch-mobile
+    margin-left: -20px
+    margin-right: -20px
