@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+
+ruby '2.1.1'
+#ruby-gemset=barcampgb
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass'
@@ -9,7 +11,6 @@ gem 'flutie'
 gem 'jquery-rails'
 gem 'mail_view'
 gem 'rails', '4.0.0'
-gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
