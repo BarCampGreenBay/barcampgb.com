@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def registration_email(user)
     @user = user
-    mail(to: @user.email, subject: 'BarCamp Green Bay 2013')
+    mail(to: @user.email, subject: 'BarCamp Green Bay 2014')
   end
 
   def password_reset_email(user)
