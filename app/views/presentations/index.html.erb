@@ -16,7 +16,7 @@
     <% end %>
   <% else %>
     <div class="box">
-      <p>We don't have any sessions yet... Perhaps you should <%= link_to('create the first one', new_presentation_path) %>.</p>
+      <p>We don't have any sessions yet... Perhaps you should <%= link_to('create the first one', '', data: { target: '#presentation-modal', toggle: 'modal' }) %>.</p>
     </div>
   <% end %>
 </div>
