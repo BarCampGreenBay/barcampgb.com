@@ -16,6 +16,7 @@ Barcampgb::Application.routes.draw do
 
   # pages
   get 'about' => 'pages#about'
+  get 'code-of-conduct' => 'pages#coc'
 
   # custom routes
   get 'signin' => 'sessions#new'
